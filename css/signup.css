@@ -1,0 +1,17 @@
+.line{
+	border: none; 
+    background-color: black;
+    height: 2px; 
+}
+.form-group {
+    margin-bottom: 15px;
+}
+.button{
+	float: right;	
+}
+.btn-primary{
+	background-color: ba4f1f;
+}
+.container{
+	background-color: f6f4f3;
+}
