@@ -15,6 +15,7 @@
 			var form = $(this);
 			app.validateForm(form);
 			app.validateNames(form);
+			app.validateEmail(form);
 		},
 
 		validateForm: function(form){
@@ -62,6 +63,25 @@
 				validNames == false
 			}
 			return validNames
+		},
+
+
+		validateEmail: function(form){
+			var validEmail = true,
+				inputEmail = document.getElementById('inputEmail'),
+				formGroupEmail = $(inputEmail).parents('.form-group'),
+				emailSpan = formGroupEmail.find('span')
+				re = new RegExp(/^[a-z][a-zA-Z0-9_.]*(\.[a-zA-Z][a-zA-Z0-9_.]*)?@[a-z][a-zA-Z-0-9]*\.[a-z]+(\.[a-z]+)?$/);
+			
+			if(re.test(inputEmail.value)){
+				formGroupEmail.removeClass('has-error')
+				emailSpan.text("")
+			} else if (inputEmail.value.length != 0 ) {
+				formGroupEmail.addClass('has-error')
+				emailSpan.text("Неверный формат Email")
+				validEmail == false
+			}
+			return validEmail
 		}	
 		
 	}
